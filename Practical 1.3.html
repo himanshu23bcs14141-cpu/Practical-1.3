@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Dashboard</title>
+  <style>
+    /* Default Light Theme */
+    :root {
+      --bg-color: #ffffff;
+      --text-color: #000000;
+      --header-bg: #25e066; /* Green background */
+      --sidebar-bg: #e0e0e0;
+      --footer-bg: #25e066; /* Green background */
+      --header-text: #ffffff; /* White text */
+      --footer-text: #ffffff; /* White text */
+    }
+
+    /* Dark Theme overrides if checkbox is checked */
+    body:has(#theme-toggle:checked) {
+      --bg-color: #121212;
+      --text-color: #ffffff;
+      --header-bg: #1f1f1f;
+      --sidebar-bg: #2a2a2a;
+      --footer-bg: #1f1f1f;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+    }
+
+    .dashboard {
+      display: grid;
+      grid-template-areas:
+        "header header"
+        "sidebar main"
+        "footer footer";
+      grid-template-columns: 250px 1fr;
+      grid-template-rows: 60px 1fr 40px;
+      height: 100vh;
+    }
+
+    header {
+      grid-area: header;
+      background-color: var(--header-bg);
+      color: var(--header-text);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+    }
+
+    nav {
+      grid-area: sidebar;
+      background-color: var(--sidebar-bg);
+      padding: 20px;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    nav ul li {
+      margin: 20px 0;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: var(--text-color);
+      font-weight: bold;
+    }
+
+    main {
+      grid-area: main;
+      padding: 20px;
+    }
+
+    footer {
+      grid-area: footer;
+      background-color: var(--footer-bg);
+      color: var(--footer-text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Theme Switch Toggle */
+    .theme-switch {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .theme-switch label {
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    #theme-toggle {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <input type="checkbox" id="theme-toggle">
+  <div class="dashboard">
+    <header>
+      <h1>Admin Dashboard</h1>
+      <div class="theme-switch">
+        <label for="theme-toggle" class="toggle-label"> ⬛Dark Mode</label>
+      </div>
+    </header>
+
+    <nav>
+      <ul>
+        <li><a href="#">▪️ Home</a></li>
+        <li><a href="#"> ▪️Users</a></li>
+        <li><a href="#">▪️ Settings</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <h2>Welcome!</h2>
+      <p>This is a placeholder for reports, graphs, or content.</p>
+    </main>
+
+    <footer>
+      &copy; 2025 Admin Panel. All rights reserved.
+    </footer>
+  </div>
+</body>
+</html>
